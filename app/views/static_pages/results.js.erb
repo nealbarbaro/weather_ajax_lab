@@ -1,0 +1,20 @@
+var latitude = <%= @input[:lat] %>
+var longitude = <%= @input[:long] %>
+
+var handleData = function(response) {
+  var weather = $.parseJSON(response.responseText).currently.summary;
+  $(".results").text(weather);
+}
+
+var fetchWeather = function() {
+  $.ajax({
+    type: "GET",
+    url: 'http://bwb.webscript.io/weather?x=' + latitude + '&y=' + longitude,
+    complete: function(response, status_text) {
+      handleData(response);
+    }
+  })
+}
+
+fetchWeather();
+

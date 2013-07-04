@@ -1,0 +1,16 @@
+<h1>DESTINATION</h1>
+
+<%= form_tag('/results', remote: true) %>
+  <div class="field">
+    <%= label_tag 'lat' %>
+    <%= text_field_tag 'lat' %>
+  </div>
+  <div class="field">
+    <%= label_tag 'long' %>
+    <%= text_field_tag 'long' %>
+  </div>
+  <div class="field">
+    <%= button_tag 'submit' %>
+  </div>
+<% form_tag %>
+  <div class="results"></div>
